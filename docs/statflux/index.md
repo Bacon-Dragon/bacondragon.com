@@ -1,49 +1,58 @@
 # StatFlux
 
-**Stats, buffs, status effects & abilities for Unity — data-driven, dependency-free, fully inspectable.**
+**Every game has stats. StatFlux handles everything that changes them.**
 
-StatFlux gives your game a complete character-stat pipeline: define stats as assets, modify them with
-buffs and ticking status effects, cast abilities with cooldowns and costs, and watch every number
-compute live in the editor. No third-party dependencies. No code required for authoring.
+Health, speed, armor, mana — defining them is easy. The hard part is everything that *touches* them:
+the haste potion that stacks with the speed rune but not with itself, the poison that ticks every
+second, the shield that expires mid-fight, the boss aura that halves healing, the save file that has
+to bring it all back exactly as it was. That web of interactions is where stat systems break — and
+it's exactly what StatFlux manages for you.
 
-> **Unity Asset Store:** *coming soon* · Requires Unity 6+
+> **Unity Asset Store:** *coming soon* · Unity 6+ · no third-party dependencies
 
-## Why StatFlux
+## Author it without code
 
-- **Buffs done right.** The full lifecycle: `(base + ΣADD) × (1 + ΣMULTADD) × ΠMULTMULT` with ABSOLUTE
-  overrides, Instant / Timed / Infinite lifetimes, five stacking modes, categories for dispel, source
-  tracking, resistances (immunity + partial potency), and apply-time conditions.
-- **Stats that react.** Derived stats (`MaxHealth = f(Vitality)`) recompute automatically; bounds can be
-  driven by other stats (current HP capped at MaxHealth) and re-clamp live.
-- **Archetypes → variants.** StatBase inheritance with per-field overrides: configure *Tank* once,
-  derive *Speedy Tank* by overriding one value.
-- **See the math.** The dockable Debugger shows every stat's exact calculation — per-buff terms,
-  clamping, countdowns — live in Play mode.
-- **Author in seconds.** A guided Wizard creates stats, buffs, effects, abilities, and categories with
-  inline dependency creation and live worked examples.
-- **No lock-in.** Works with any character controller via plain components and a small tag-based API.
-  Save/load ships in the box and doubles as a network sync payload.
+Designers build everything as assets — no programming required:
+
+- A guided **Wizard** walks you through creating stats, buffs, effects, and abilities, and shows a
+  **live worked example** of the math as you type. Change a value, watch the result update.
+- Inspectors show only the fields that matter and include the same live examples.
+- A **Library** window lists every buff and effect in your project, filters them, flags unused ones,
+  and shows exactly where each is used.
+- A **Debugger** shows every stat's full calculation ticking live in Play mode — no more "why is my
+  speed 37?"
+
+When you do want code, the whole system is a small, clean API — apply a buff in one line.
+
+## It handles the hard cases
+
+- **Stacking, done properly.** Five stacking modes per buff. Haste stacks with itself; armor potions
+  replace each other; the weaker slow gets ignored while a stronger one runs.
+- **Timers of every kind.** Instant hits, timed buffs, permanent effects, damage-over-time ticks —
+  and when a status effect ends, everything it applied is cleaned up automatically.
+- **Stats that depend on stats.** Max health computed from vitality. Current health capped at max
+  health — and when max health changes, current follows instantly.
+- **Resistances and conditions.** Poison resist as a stat (buff the resist itself!), immunity at 100%,
+  effects that only land below an HP threshold.
+- **Cleansing.** Remove by type, by category ("dispel all debuffs"), or by source ("the caster died").
+- **Save and load.** One call captures every stat, buff, and mid-flight timer to plain JSON; one call
+  restores it. The same payload works for network sync.
+- **On-screen buff bar included.** A drop-in component shows active effects with icons, countdown
+  numbers, radial timers, stack counts, and an expiring flash — all configured per asset, zero setup.
+
+## Try it in 60 seconds
+
+Import, open the demo scene, press Play. A character walks in circles; buttons apply haste, slow,
+root, and poison, and you watch its speed change in real time — in the world, on the buff bar, and in
+the Debugger's live math view.
 
 ## What's in the package
 
 | | |
 |---|---|
-| **Runtime** | `StatSheet`, `Buff`/`BuffManager`, `StatusEffect`, `Ability`/`AbilityCaster`, save/load registry |
-| **Editor tooling** | Creation Wizard · live Debugger · Getting Started onboarding · API Reference window · conditional inspectors with worked examples |
-| **Demo** | A playable scene: a walking character whose speed visibly responds to buffs, slows, roots, and poison |
-| **Docs** | This site, plus the quick-start shipped in the package |
-
-## Quick taste
-
-```csharp
-using BD;
-
-buffs.ApplyBuff(hasteBuff, caster);                 // ×2 speed for 4s, stacking rules applied
-buffs.ApplyStatusEffect(poisonEffect, caster);      // 5 dmg/sec DOT with automatic teardown
-buffs.ClearBuffsByCategory(debuffTag);              // dispel
-casterComponent.TryCast(fireball, enemyBuffs);      // cooldown + mana cost handled
-
-sheet.OnStatChanged += (stat, source) => UpdateUI(stat);
-```
+| **Runtime** | Stat sheets, buffs, status effects, abilities, resistances, save/load, buff bar UI |
+| **Editor tooling** | Creation Wizard · asset Library with usage tracking · live Debugger · Getting Started onboarding · in-editor API reference |
+| **Demo** | A playable scene showing every feature |
+| **Docs** | This site, plus a quick-start in the package |
 
 Continue with **[Getting Started →](/statflux/getting-started)**

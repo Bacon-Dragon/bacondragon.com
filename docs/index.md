@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Bacon Dragon
   text: Game systems tools for Unity
-  tagline: Data-driven, dependency-free gameplay systems — built by game developers, for game developers.
+  tagline: Stats, buffs, and the systems every game needs — authored as assets, debugged live, shipped without dependencies.
   image:
     src: /statflux-mark.png
     alt: Bacon Dragon
@@ -19,7 +19,7 @@ hero:
 features:
   - icon: 📊
     title: StatFlux
-    details: Stats, buffs, status effects & abilities. Reactive derived stats, stat-driven bounds, DOT/HOT, resistances, save/load — with a creation wizard and a live calculation debugger.
+    details: Every game has stats — StatFlux handles everything that changes them. Buffs, stacking, DOT ticks, resistances, save/load, and a drop-in buff bar, all authored as assets with a wizard and debugged with live math.
     link: /statflux/
     linkText: Documentation
   - icon: 🧰
