@@ -1,0 +1,539 @@
+/* ==========================================================================
+   Bacon Dragon — brand layer for the VitePress default theme
+   Brand Guidelines v1.0: Crispy Crimson, Sizzling Orange, Pale Bone,
+   Charcoal Smoke. Display: geometric high-tech italic (Saira).
+   Body: Inter. Code: Fira Code. No drop shadows, no gradients, no skewing.
+   ========================================================================== */
+
+:root {
+  /* Brand palette */
+  --bd-crimson: #a21917;
+  --bd-crimson-deep: #7d1210;
+  --bd-orange: #e65a15;
+  --bd-orange-light: #f27a3d;
+  --bd-bone: #eae9d9;
+  --bd-charcoal: #12161a;
+  --bd-charcoal-deep: #0d1013;
+  --bd-charcoal-raised: #191e23;
+  --bd-charcoal-line: #262c32;
+
+  --bd-pixel: 6px;
+  --bd-grid: 32px;
+  --bd-grid-line: rgba(234, 233, 217, 0.045);
+
+  /* Type */
+  --bd-font-display: 'Saira Variable', 'Saira', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --vp-font-family-base: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --vp-font-family-mono: 'Fira Code Variable', 'Fira Code', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+}
+
+/* The site is dark-only (appearance: 'force-dark'); tokens are set on both
+   selectors so nothing falls back to the stock light palette. */
+:root,
+.dark {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --vp-c-bg: var(--bd-charcoal);
+  --vp-c-bg-alt: var(--bd-charcoal-deep);
+  --vp-c-bg-elv: var(--bd-charcoal-raised);
+  --vp-c-bg-soft: var(--bd-charcoal-raised);
+
+  /* Lines */
+  --vp-c-border: rgba(234, 233, 217, 0.18);
+  --vp-c-divider: rgba(234, 233, 217, 0.1);
+  --vp-c-gutter: var(--bd-charcoal-deep);
+
+  /* Text — Pale Bone, never pure white */
+  --vp-c-text-1: var(--bd-bone);
+  --vp-c-text-2: rgba(234, 233, 217, 0.74);
+  --vp-c-text-3: rgba(234, 233, 217, 0.56);
+
+  /* Brand */
+  --vp-c-brand-1: var(--bd-orange);
+  --vp-c-brand-2: var(--bd-orange-light);
+  --vp-c-brand-3: var(--bd-orange);
+  --vp-c-brand-soft: rgba(230, 90, 21, 0.16);
+
+  --vp-c-default-1: rgba(234, 233, 217, 0.5);
+  --vp-c-default-2: rgba(234, 233, 217, 0.32);
+  --vp-c-default-3: rgba(234, 233, 217, 0.22);
+  --vp-c-default-soft: rgba(234, 233, 217, 0.07);
+
+  /* Custom containers */
+  --vp-c-tip-1: var(--bd-orange);
+  --vp-c-tip-2: var(--bd-orange-light);
+  --vp-c-tip-3: var(--bd-orange);
+  --vp-c-tip-soft: rgba(230, 90, 21, 0.12);
+  --vp-c-warning-1: #f0a24a;
+  --vp-c-warning-2: #f4b56b;
+  --vp-c-warning-3: #f0a24a;
+  --vp-c-warning-soft: rgba(240, 162, 74, 0.12);
+  --vp-c-danger-1: #f2665c;
+  --vp-c-danger-2: #f5867e;
+  --vp-c-danger-3: var(--bd-crimson);
+  --vp-c-danger-soft: rgba(162, 25, 23, 0.22);
+
+  /* Buttons: charcoal on orange passes AA; crimson + bone on hover */
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: var(--bd-charcoal);
+  --vp-button-brand-bg: var(--bd-orange);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: var(--bd-bone);
+  --vp-button-brand-hover-bg: var(--bd-crimson);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: var(--bd-bone);
+  --vp-button-brand-active-bg: var(--bd-crimson-deep);
+
+  --vp-button-alt-border: rgba(234, 233, 217, 0.32);
+  --vp-button-alt-text: var(--bd-bone);
+  --vp-button-alt-bg: transparent;
+  --vp-button-alt-hover-border: var(--bd-bone);
+  --vp-button-alt-hover-text: var(--bd-bone);
+  --vp-button-alt-hover-bg: rgba(234, 233, 217, 0.06);
+  --vp-button-alt-active-border: var(--bd-bone);
+  --vp-button-alt-active-text: var(--bd-bone);
+  --vp-button-alt-active-bg: rgba(234, 233, 217, 0.1);
+
+  /* Home hero */
+  --vp-home-hero-name-color: var(--bd-bone);
+  --vp-home-hero-image-background-image: none;
+  --vp-home-hero-image-filter: none;
+
+  /* Code */
+  --vp-code-color: var(--bd-orange-light);
+  --vp-code-bg: rgba(230, 90, 21, 0.1);
+  --vp-code-block-bg: var(--bd-charcoal-deep);
+  --vp-code-block-divider-color: var(--bd-charcoal-line);
+  --vp-code-tab-bg: var(--bd-charcoal-deep);
+  --vp-code-copy-code-bg: var(--bd-charcoal-raised);
+  --vp-code-copy-code-hover-bg: var(--bd-charcoal-line);
+
+  /* Chrome */
+  --vp-nav-bg-color: var(--bd-charcoal);
+  --vp-nav-logo-height: 30px;
+  --vp-sidebar-bg-color: var(--bd-charcoal-deep);
+  --vp-local-search-bg: var(--bd-charcoal);
+  --vp-local-search-result-bg: var(--bd-charcoal-raised);
+  --vp-local-search-result-selected-bg: var(--bd-charcoal-raised);
+  --vp-local-search-result-selected-border: var(--bd-orange);
+  --vp-local-search-highlight-bg: var(--bd-orange);
+  --vp-local-search-highlight-text: var(--bd-charcoal);
+
+  /* No drop shadows anywhere — brand rule */
+  --vp-shadow-1: none;
+  --vp-shadow-2: none;
+  --vp-shadow-3: none;
+  --vp-shadow-4: none;
+  --vp-shadow-5: none;
+}
+
+::selection {
+  background: var(--bd-crimson);
+  color: var(--bd-bone);
+}
+
+:focus-visible {
+  outline: 2px solid var(--bd-orange);
+  outline-offset: 2px;
+}
+
+/* ---------- Nav ---------- */
+
+.VPNavBarTitle .title {
+  font-family: var(--bd-font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-stretch: 110%;
+  font-size: 19px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  gap: 10px;
+}
+
+.VPNavBar.has-sidebar .content-body,
+.VPNavBar:not(.home) {
+  background-color: var(--vp-nav-bg-color);
+}
+
+.VPNavBarMenuLink.active {
+  color: var(--bd-orange);
+}
+
+/* ---------- Buttons: squared, with one clipped corner like the brand frames ---------- */
+
+.VPButton {
+  border-radius: 2px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em;
+}
+
+.VPButton.brand {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+}
+
+.VPButton:focus-visible {
+  outline-offset: 3px;
+}
+
+.VPButton.brand:focus-visible {
+  /* clip-path would cut an outside ring; draw it inside instead */
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--bd-bone);
+}
+
+/* ---------- Home hero ---------- */
+
+.VPHome {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Blueprint grid from the brand sheet, home page only */
+.VPHome::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--vp-nav-height) * -1) 0 auto 0;
+  height: 900px;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--bd-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bd-grid-line) 1px, transparent 1px);
+  background-size: var(--bd-grid) var(--bd-grid);
+  background-position: -1px -1px;
+  -webkit-mask-image: linear-gradient(#000 55%, transparent);
+  mask-image: linear-gradient(#000 55%, transparent);
+}
+
+.VPHero .name,
+.VPHero .name .clip {
+  font-family: var(--bd-font-display);
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: 112%;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 0.92;
+  color: var(--bd-bone);
+  -webkit-text-fill-color: var(--bd-bone);
+  background: none;
+}
+
+.VPHero .name {
+  font-size: 52px;
+}
+
+.VPHero .text {
+  font-family: var(--bd-font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-stretch: 104%;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--bd-bone);
+  margin-top: 14px;
+}
+
+.VPHero .tagline {
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 34em;
+  color: var(--vp-c-text-2);
+  padding-top: 18px;
+}
+
+.VPHero .actions {
+  padding-top: 28px;
+}
+
+@media (min-width: 640px) {
+  .VPHero .name {
+    font-size: 72px;
+  }
+  .VPHero .text {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPHero .name {
+    font-size: 92px;
+  }
+  .VPHero .text {
+    font-size: 38px;
+  }
+  .VPHero .tagline {
+    font-size: 18px;
+  }
+}
+
+/* ---------- Home features ---------- */
+
+.VPFeature {
+  position: relative;
+  border-radius: 2px !important;
+  border: 1px solid var(--bd-charcoal-line) !important;
+  background-color: var(--bd-charcoal-raised) !important;
+}
+
+/* Two pixels breaking off the top-right corner */
+.VPFeature::before,
+.VPFeature::after {
+  content: '';
+  position: absolute;
+  width: var(--bd-pixel);
+  height: var(--bd-pixel);
+  pointer-events: none;
+}
+
+.VPFeature::before {
+  top: -1px;
+  right: -1px;
+  background: var(--bd-orange);
+}
+
+.VPFeature::after {
+  top: calc(var(--bd-pixel) + 3px);
+  right: calc(var(--bd-pixel) + 3px);
+  background: var(--bd-crimson);
+}
+
+.VPFeature.link:hover {
+  border-color: var(--bd-orange) !important;
+}
+
+.VPFeature .title {
+  font-family: var(--bd-font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: 106%;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.VPFeature .details {
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.VPFeature .link-text-value {
+  font-weight: 600;
+}
+
+.VPFeature .box > .VPImage {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
+/* ---------- Docs ---------- */
+
+.vp-doc h1 {
+  font-family: var(--bd-font-display);
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: 110%;
+  text-transform: uppercase;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+@media (min-width: 768px) {
+  .vp-doc h1 {
+    font-size: 48px;
+  }
+}
+
+.vp-doc h2 {
+  font-family: var(--bd-font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: 106%;
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: 0;
+  border-top-color: var(--vp-c-divider);
+}
+
+.vp-doc h3 {
+  font-weight: 650;
+  letter-spacing: -0.005em;
+}
+
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.7;
+}
+
+.vp-doc a {
+  text-decoration-color: rgba(230, 90, 21, 0.45);
+  text-underline-offset: 3px;
+}
+
+.vp-doc a:hover {
+  color: var(--bd-orange-light);
+  text-decoration-color: currentColor;
+}
+
+/* Square pixel bullets */
+.vp-doc ul {
+  list-style: square;
+}
+
+.vp-doc ul > li::marker {
+  color: var(--bd-orange);
+}
+
+.vp-doc ol > li::marker {
+  color: var(--bd-orange);
+  font-weight: 700;
+  font-family: var(--bd-font-display);
+  font-style: italic;
+}
+
+.vp-doc blockquote {
+  border-left: var(--bd-pixel) solid var(--bd-crimson);
+  background: var(--bd-charcoal-raised);
+  padding: 12px 16px;
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc blockquote > p {
+  color: var(--vp-c-text-1);
+  margin: 0;
+}
+
+.vp-doc table {
+  border-radius: 2px;
+}
+
+.vp-doc tr {
+  border-top-color: var(--bd-charcoal-line);
+}
+
+.vp-doc th,
+.vp-doc td {
+  border-color: var(--bd-charcoal-line);
+}
+
+.vp-doc th {
+  background-color: var(--bd-charcoal-raised);
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc tr:nth-child(2n) {
+  background-color: rgba(234, 233, 217, 0.025);
+}
+
+.vp-doc div[class*='language-'],
+.vp-doc .vp-code-group .tabs {
+  border-radius: 2px;
+}
+
+.vp-doc div[class*='language-'] {
+  border: 1px solid var(--bd-charcoal-line);
+}
+
+.vp-doc :not(pre) > code {
+  border-radius: 2px;
+}
+
+.custom-block {
+  border-radius: 2px;
+}
+
+/* ---------- Sidebar + outline: active item gets a square pixel ---------- */
+
+.VPSidebarItem.level-1 > .item {
+  position: relative;
+}
+
+.VPSidebarItem.level-1.is-active > .item::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  width: var(--bd-pixel);
+  height: var(--bd-pixel);
+  margin-top: calc(var(--bd-pixel) / -2);
+  background: var(--bd-orange);
+}
+
+.VPSidebarItem.level-0 > .item .text {
+  font-family: var(--bd-font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-stretch: 108%;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.VPDocOutlineItem .outline-link.active {
+  color: var(--bd-orange);
+}
+
+.VPDocAsideOutline .outline-marker {
+  width: 2px;
+  border-radius: 0;
+  background-color: var(--bd-orange);
+}
+
+/* ---------- Pager / footer ---------- */
+
+.pager-link {
+  border-radius: 2px !important;
+  border-color: var(--bd-charcoal-line) !important;
+}
+
+.pager-link:hover {
+  border-color: var(--bd-orange) !important;
+}
+
+.pager-link .title {
+  font-family: var(--bd-font-display);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.VPFooter {
+  border-top-color: var(--vp-c-divider) !important;
+  background-color: var(--bd-charcoal-deep);
+}
+
+/* ---------- Local search modal ---------- */
+
+.VPLocalSearchBox .shell {
+  border-radius: 2px;
+  border: 1px solid var(--bd-charcoal-line);
+}
+
+.VPLocalSearchBox .result {
+  border-radius: 2px;
+}
+
+.DocSearch-Button,
+.VPNavBarSearchButton {
+  border-radius: 2px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Search match highlight: charcoal on orange (bone on orange fails contrast) */
+.VPLocalSearchBox mark {
+  color: var(--bd-charcoal) !important;
+  background-color: var(--bd-orange) !important;
+  border-radius: 1px;
+}
