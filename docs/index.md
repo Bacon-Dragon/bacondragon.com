@@ -36,5 +36,5 @@ features:
       width: 48
       height: 48
     title: Bacon Dragon LLC
-    details: Independent studio building generic, production-grade game systems with 25+ years of development experience behind them.
+    details: Independent studio building production-grade game systems with 25+ years of development experience behind them.
 ---
